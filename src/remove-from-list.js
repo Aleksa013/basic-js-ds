@@ -50,13 +50,12 @@ function removeKFromList( l, k ) {
      while(this.next){
       prev = now;
       now = this.next;
-      if(this.value == k){
+      if(now.value == k){
         prev.next = now.next;
        }
      }
     
     }
-    this.length--;
    return this.value;
   }
 
