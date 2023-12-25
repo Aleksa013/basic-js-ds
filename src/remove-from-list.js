@@ -22,14 +22,51 @@ const { NotImplementedError } = require('../extensions/index.js');
  *   }
  * }
  */
+class ListNode {
+    constructor(x) {
+     this.value = x;
+     this.next = null;
+    }
+  }
+function convertArrayToList(arr) {
+  return arr.reverse().reduce((acc, cur) => {
+    if (acc) {
+      const node = new ListNode(cur);
+      node.next = acc;
+      return node;
+    }
+
+    return new ListNode(cur);
+  }, null);
+}
 
 
 function removeKFromList( l, k ) {
-const cleanArr=l.filter(i=>i!==k);
-return cleanArr;
-}
-console.log(removeKFromList([3, 1, 2, 3, 4, 5],3));
+    let now = this.head;
+    if(this.value == k){
+      this.head = this.next;
+    }else{
+     let prev = null;
+     while(this.next){
+      prev = now;
+      now = this.next;
+      if(this.value == k){
+        prev.next = now.next;
+       }
+     }
+    
+    }
+    this.length--;
+   return this.value;
+  }
 
+
+  
+ 
+
+
+
+// console.log(convertArrayToList([3, 1, 2, 3, 4, 5]))
 module.exports = {
   removeKFromList
 };

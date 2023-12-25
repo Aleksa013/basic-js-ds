@@ -14,32 +14,34 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 class Stack {
   constructor(){
-    this.length=0;
-    this.top=null;
+    this.length = 0;
+    this.top = null;
+   this.step=[];
   }
   push(item) {
-    const step = new Node(value);
+    const step = [this.top];
     if(this.top){
-      step.next=this.top;
-      this.top=item;
+      this.step = this.step.concat(step);
+      this.top = item;
     } else{
-      this.top=item;
-    }
-  
-  this.length ++;
+      this.top = item;
+    }  
+  this.length++;
   }
 
   pop() {
-   const valPop=this.top;
-   this.top= this.top.next;
-   this.length --;
+   const valPop = this.top;
+   this.top = this.step.pop();
+   this.length--;
    return valPop;
   }
 
   peek() {
-  return this.top.value;
+  return this.top;
   }
 }
+
+
 
 module.exports = {
   Stack
