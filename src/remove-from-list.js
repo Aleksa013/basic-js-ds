@@ -22,40 +22,42 @@ const { NotImplementedError } = require('../extensions/index.js');
  *   }
  * }
  */
-class ListNode {
-    constructor(x) {
-     this.value = x;
-     this.next = null;
-    }
-  }
-function convertArrayToList(arr) {
-  return arr.reverse().reduce((acc, cur) => {
-    if (acc) {
-      const node = new ListNode(cur);
-      node.next = acc;
-      return node;
-    }
+// class ListNode {
+//     constructor(x) {
+//      this.value = x;
+//      this.next = null;
+//     }
+//   }
+// function convertArrayToList(arr) {
+//   return arr.reverse().reduce((acc, cur) => {
+//     if (acc) {
+//       const node = new ListNode(cur);
+//       node.next = acc;
+//       return node;
+//     }
 
-    return new ListNode(cur);
-  }, null);
-}
+//     return new ListNode(cur);
+//   }, null);
+// }
 
 
 function removeKFromList( l, k ) {
-    let now = this.head;
-    if(this.value == k){
-      this.head = this.next;
+  let other = this.next;
+  let prev = {};
+    if(this.value == k && prev == null){
+      this.value = other.value;
+      this.next = other.next;
     }else{
-     let prev = null;
-     while(this.next){
-      prev = now;
-      now = this.next;
-      if(now.value == k){
-        prev.next = now.next;
-       }
-     }
-    
+      while(!this.next)
+      prev.value = this.value;
+      prev.next = this.next;
+      this.value = next.value;
+      this.next = other.next
+      if(this.value == k){
+        this.value = next.value;
+        this.next = other.next;
     }
+  }
    return this.value;
   }
 
