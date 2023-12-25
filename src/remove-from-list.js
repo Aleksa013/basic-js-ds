@@ -48,7 +48,7 @@ function removeKFromList( l, k ) {
       this.value = other.value;
       this.next = other.next;
     }else{
-      while(!this.next)
+      while(this.next)
       prev.value = this.value;
       prev.next = this.next;
       this.value = next.value;
